@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\Auth\AuthenticationTest" file="E:\Xampp\htdocs\quanlybanvemaybay\tests\Feature\Auth\AuthenticationTest.php" tests="6" assertions="18" errors="0" warnings="0" failures="0" skipped="0" time="1.941851">
+    <testcase name="test_ut12_valid_login_is_successful" class="Tests\Feature\Auth\AuthenticationTest" classname="Tests.Feature.Auth.AuthenticationTest" file="E:\Xampp\htdocs\quanlybanvemaybay\tests\Feature\Auth\AuthenticationTest.php" line="32" assertions="3" time="0.883253"/>
+    <testcase name="test_ut10_invalid_password_shows_error_message" class="Tests\Feature\Auth\AuthenticationTest" classname="Tests.Feature.Auth.AuthenticationTest" file="E:\Xampp\htdocs\quanlybanvemaybay\tests\Feature\Auth\AuthenticationTest.php" line="47" assertions="3" time="0.346557"/>
+    <testcase name="test_ut11_non_existent_email_shows_error_message" class="Tests\Feature\Auth\AuthenticationTest" classname="Tests.Feature.Auth.AuthenticationTest" file="E:\Xampp\htdocs\quanlybanvemaybay\tests\Feature\Auth\AuthenticationTest.php" line="64" assertions="3" time="0.314305"/>
+    <testcase name="test_ut07_empty_email_shows_validation_error" class="Tests\Feature\Auth\AuthenticationTest" classname="Tests.Feature.Auth.AuthenticationTest" file="E:\Xampp\htdocs\quanlybanvemaybay\tests\Feature\Auth\AuthenticationTest.php" line="81" assertions="3" time="0.140876"/>
+    <testcase name="test_ut08_empty_password_shows_validation_error" class="Tests\Feature\Auth\AuthenticationTest" classname="Tests.Feature.Auth.AuthenticationTest" file="E:\Xampp\htdocs\quanlybanvemaybay\tests\Feature\Auth\AuthenticationTest.php" line="98" assertions="3" time="0.135492"/>
+    <testcase name="test_ut09_invalid_email_format_shows_validation_error" class="Tests\Feature\Auth\AuthenticationTest" classname="Tests.Feature.Auth.AuthenticationTest" file="E:\Xampp\htdocs\quanlybanvemaybay\tests\Feature\Auth\AuthenticationTest.php" line="115" assertions="3" time="0.121368"/>
+  </testsuite>
+</testsuites>

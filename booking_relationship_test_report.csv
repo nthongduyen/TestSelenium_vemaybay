@@ -1,0 +1,4 @@
+﻿ID,"Mô tả","Kết quả Mong đợi/Lỗi","Trạng thái"
+ITG-DV-01,"Kiểm tra mối quan hệ Booking (hasMany) Vé (belongsTo).","Quan hệ 1-N (Booking -> Vé) và ngược lại hoạt động chính xác.",PASS
+ITG-DV-02,"Kiểm tra mối quan hệ Vé (hasOne) Thông Tin Người Đi (belongsTo).","Quan hệ 1-1 (Vé <-> Thông tin Người Đi) hoạt động chính xác.",PASS
+ITG-DV-03,"Kiểm tra NguoiDung có thể truy xuất các Booking của họ (hasMany).","Quan hệ 1-N (Người Dùng -> Booking) và ngược lại hoạt động chính xác.",PASS

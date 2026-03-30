@@ -1,0 +1,4 @@
+﻿ID,"Mô tả","Kết quả Mong đợi","Trạng thái"
+ITG-CB-01,"Kiểm tra quan hệ BelongsTo của Chuyến Bay.","Quan hệ belongsTo (Máy Bay, Sân Bay Đi/Đến) thành công.",PASS
+ITG-CB-02,"Kiểm tra quan hệ HasMany giữa Máy Bay và Ghế.","Quan hệ HasMany (Ghế) và số lượng ghế khớp.",PASS
+ITG-CB-03,"Kiểm tra quan hệ HasMany giữa Sân Bay và Chuyến Bay.","Quan hệ HasMany (Chuyến Bay Đi/Đến) từ Sân Bay thành công.",PASS

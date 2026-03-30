@@ -1,0 +1,5 @@
+﻿ID,"Mô tả","Kết quả Mong đợi","Trạng thái"
+ITG-TT-01,"Kiểm tra tính toán giảm giá theo phần trăm (10%).","Booking.tong_tien phải là 900.00.",PASS
+ITG-TT-02,"Kiểm tra Booking tính Tổng Tiền chính xác sau khi áp dụng Khuyến Mãi cố định.","Booking.tong_tien phải là 1,900,000 VND và liên kết đúng Khuyến Mãi.",PASS
+ITG-TT-03,"Kiểm tra tạo Hóa Đơn và Chi Tiết Hóa Đơn từ Booking (Giá gốc trong Chi Tiết).","HoaDon.tong_tien là 1,900,000 VND, có 2 Chi Tiết Hóa Đơn, và ChiTietHoaDon.gia là 1,000,000 VND.",PASS
+ITG-TT-04,"Kiểm tra ghi nhận Doanh Thu từ Hóa Đơn (bằng tổng tiền thanh toán).","DoanhThu.doanh_thu phải là 1,900,000 VND và liên kết đúng Hoa Đơn.",PASS

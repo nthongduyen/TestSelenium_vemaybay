@@ -1,0 +1,9 @@
+[13220:24584:0305/215433.812:INFO:components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc:225] No machine level policy manager exists.
+[6744:22472:0305/215433.866:ERROR:ui\gl\direct_composition_support.cc:243] GetGpuDriverOverlayInfo: Failed to retrieve video device
+[6744:22472:0305/215433.867:VERBOSE1:components\viz\service\main\viz_main_impl.cc:86] VizNullHypothesis is disabled (not a warning)
+[12148:16256:0305/215433.908:INFO:third_party\webrtc\rtc_base\cpu_info.cc:75] Available number of cores: 16
+[2040:16964:0305/215433.908:INFO:third_party\webrtc\rtc_base\cpu_info.cc:75] Available number of cores: 16
+[10404:14116:0305/215434.166:INFO:third_party\webrtc\rtc_base\cpu_info.cc:75] Available number of cores: 16
+[14576:13432:0305/215434.306:INFO:third_party\webrtc\rtc_base\cpu_info.cc:75] Available number of cores: 16
+[13220:24584:0305/215434.838:INFO:CONSOLE:229] "[vite] connecting...", source: http://[::1]:5173/@vite/client (229)
+[13220:24584:0305/215434.847:INFO:CONSOLE:325] "[vite] connected.", source: http://[::1]:5173/@vite/client (325)

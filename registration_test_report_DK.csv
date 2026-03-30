@@ -1,0 +1,15 @@
+﻿ID,"Mô tả","Email Input","Kết quả Mong đợi","Trạng thái"
+UT07,"Đăng ký thành công (Dữ liệu hợp lệ)",newuser@example.com,"Lưu thông tin thành công và chuyển hướng",PASS
+UT08,"Email đã tồn tại",user1@example.com,"Lỗi: Email đã tồn tại trong hệ thống",PASS
+UT09,"Email bị bỏ trống",,"Lỗi: Email không được để trống",PASS
+UT10,"Email sai định dạng",abc.com,"Lỗi: Địa chỉ Email không hợp lệ",PASS
+UT11,"Mật khẩu ít hơn 8 ký tự",test@shortpass.com,"Lỗi: Mật khẩu phải từ 8 ký tự trở lên",PASS
+UT12,"Mật khẩu bị bỏ trống",test@emptypass.com,"Lỗi: Mật khẩu không được để trống",PASS
+UT13,"SĐT không bắt đầu bằng 0",test@wrongsdt.com,"Lỗi: Số điện thoại phải bắt đầu bằng 0",PASS
+UT14,"SĐT không đủ 10 số",test@shortdigits.com,"Lỗi: Số điện thoại phải đủ 10 số",PASS
+UT15,"Xác nhận mật khẩu không khớp",test@mismatch.com,"Lỗi: Xác nhận lại mật khẩu không khớp",PASS
+UT16,"Họ tên bị bỏ trống",test@emptyname.com,"Lỗi: Họ tên không được để trống",PASS
+UT17,"Họ tên chứa ký tự đặc biệt",test@namespecial.com,"Lỗi: Họ tên không được chứa ký tự đặc biệt",PASS
+UT18,"Họ tên chứa số",test@namenumber.com,"Lỗi: Họ tên không được chứa số",PASS
+UT19,"Địa chỉ bị bỏ trống",test@emptyaddress.com,"Lỗi: Địa chỉ không được để trống",PASS
+UT20,"Địa chỉ chứa ký tự đặc biệt (Hợp lệ)",test@addressspecial.com,"Lưu thông tin thành công và chuyển hướng",PASS

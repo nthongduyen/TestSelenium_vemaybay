@@ -1,0 +1,7 @@
+﻿ID,"Mô tả","Email Input","Password Input","Kết quả Mong đợi","Trạng thái"
+UT01,"Người dùng đăng nhập đúng",123@gmail.com,123123123,"Đăng nhập thành công, chuyển hướng đúng",PASS
+UT02,"Mật khẩu sai",123@gmail.com,sai_mat_khau,"Hệ thống báo lỗi đăng nhập",PASS
+UT03,"Email không tồn tại",khachmoi@abc.com,123123123,"Hệ thống báo lỗi đăng nhập",PASS
+UT04,"Email bị bỏ trống",,123123123,"Hệ thống báo lỗi Validation cho Email",PASS
+UT05,"Mật khẩu bị bỏ trống",123@gmail.com,,"Hệ thống báo lỗi Validation cho Mật khẩu",PASS
+UT06,"Email sai định dạng",abc.com,123123123,"Hệ thống báo lỗi Validation cho Email",PASS

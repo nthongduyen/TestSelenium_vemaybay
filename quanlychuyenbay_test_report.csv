@@ -1,0 +1,4 @@
+﻿ID,"Mô tả","Kết quả Mong đợi","Trạng thái"
+IT01,"Admin có thể thêm chuyến bay","Thêm chuyến bay thành công (HTTP Status: 302). Dữ liệu đã được lưu.",PASS
+IT02,"Admin có thể sửa chuyến bay","Sửa chuyến bay thành công (HTTP Status: 302). Giá vé đã thay đổi thành 2000000.",PASS
+IT03,"Admin có thể xóa chuyến bay","Xóa chuyến bay thành công (HTTP Status: 302). Dữ liệu đã bị xóa khỏi DB.",PASS
