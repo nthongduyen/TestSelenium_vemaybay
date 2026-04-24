@@ -18,7 +18,7 @@ class Login_Test extends DuskTestCase
                 ->waitFor('#email', 10)
                 ->type('#email', '123@gmail.com')
                 ->type('#password', '123123123')
-                ->click('.px-4')
+                ->click('button[type="submit"]')
                 // Chờ phản hồi từ server
                 ->pause(3000)
 
