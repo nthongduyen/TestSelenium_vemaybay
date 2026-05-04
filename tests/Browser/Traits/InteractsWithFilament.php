@@ -52,15 +52,40 @@ trait InteractsWithFilament
 
         $browser->pause(500);
     }
-    protected function setFilamentDateTime(Browser $browser, $fieldId, $dateTimeString)
+  protected function setFilamentDateTime(Browser $browser, $fieldId, $dateTimeString)
     {
-        // Ví dụ: $dateTimeString = '2026-10-13 08:00:00'
-        $browser->script([
-            "let el = document.getElementById('$fieldId');",
-            "if (el) {",
-            "   el.value = '$dateTimeString';",
-            "   el.dispatchEvent(new Event('change', { bubbles: true }));",
-            "}"
-        ]);
+        // Dấu \$ giúp VS Code không báo lỗi biến PHP Undefined
+        $browser->script("
+            (function() {
+                let el = document.getElementById('$fieldId');
+                if (!el) return;
+
+                // 1. Gán giá trị vào input
+                el.value = '$dateTimeString';
+
+                // 2. Ép Alpine.js cập nhật state để Livewire nhận dữ liệu
+                if (window.Alpine) {
+                    let alpineData = window.Alpine.\$data(el);
+                    if (alpineData) {
+                        alpineData.state = '$dateTimeString';
+                    }
+                } else if (el.__x) {
+                    el.__x.\$data.state = '$dateTimeString';
+                }
+
+                // 3. Kích hoạt sự kiện đồng bộ
+                el.dispatchEvent(new Event('input', { bubbles: true }));
+                el.dispatchEvent(new Event('change', { bubbles: true }));
+                el.blur();
+            })();
+        ");
+    }
+    protected function setFilamentTableToAll(Browser $browser)
+    {
+        $selector = 'select[wire:model="tableRecordsPerPage"]';
+        if ($browser->element($selector)) {
+            $browser->select($selector, '-1')
+                    ->pause(2000);
+        }
     }
 }

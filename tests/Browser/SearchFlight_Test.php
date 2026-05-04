@@ -243,4 +243,4 @@ class SearchFlight_Test extends DuskTestCase
 
 
 
-//php artisan dusk tests/Browser/SearchFlightTest.php --testdox
+// php artisan dusk tests/Browser/SearchFlight_Test.php --testdox

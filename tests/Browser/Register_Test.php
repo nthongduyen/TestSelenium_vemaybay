@@ -16,20 +16,25 @@ class Register_Test extends DuskTestCase
                 ->clickLink('Đăng ký')
                 ->waitFor('#name',10)
                 ->type('#name','Nguyen Thi Hong')
-                ->type('#email','newuser'.rand(1,9999).'@gmail.com')
+                //->type('#email','newuser'.rand(1,9999).'@gmail.com')
+                ->type('#email', 'newuser12@example.com')
                 ->type('#password','Abc@1234')
                 ->type('#password_confirmation','Abc@1234')
                 ->type('#so_dien_thoai','0901234567')
                 ->type('#dia_chi','Ha Noi')
                 ->press('button[type=submit]')
-                ->pause(3000)
+                ->pause(2000)
                 ->script("if(document.querySelector('.swal2-confirm')) { document.querySelector('.swal2-confirm').click(); }");
             $browser->pause(2000)
-                ->waitForLocation('/dashboard',10)
+                ->waitForLocation('/dashboard', 10)
                 ->assertPathIs('/dashboard')
                 ->assertSee('Cảm ơn bạn đã tin tưởng')
                 ->clickLink('Về Trang Chủ')
-                ->pause(2000)
+                ->pause(700)
+                ->assertPathIs('/')
+                ->click('.relative button')
+                ->waitForText('Log Out')
+                ->clickLink('Log Out')
                 ->assertPathIs('/');
         });
     }
@@ -50,9 +55,8 @@ class Register_Test extends DuskTestCase
                 ->type('#password_confirmation','Abc@1234')
                 ->type('#so_dien_thoai','0901234567')
                 ->type('#dia_chi','Ha Noi')
-
                 ->press('button[type=submit]')
-                ->pause(2000)
+                ->waitForText('Email đã được sử dụng', 10)
                 ->assertSee('Email đã được sử dụng');
         });
     }
@@ -76,7 +80,7 @@ class Register_Test extends DuskTestCase
 
                 ->script("document.querySelector('form').setAttribute('novalidate', 'novalidate');");
             $browser->press('button[type=submit]')
-                ->pause(1000)
+                ->waitForText('Email không được để trống.', 10)
                 ->assertSee('Email không được để trống.');
             //Kiểm tra xem trình duyệt có chặn lại và vẫn ở trang cũ không
             //->press('button[type=submit]');
@@ -97,7 +101,7 @@ class Register_Test extends DuskTestCase
                 ->type('#dia_chi', 'Hà Nội')
                 ->script("document.querySelector('form').setAttribute('novalidate', 'novalidate');");
             $browser->press('button[type=submit]')
-                ->pause(1000)
+                ->waitForText('Email phải là một địa chỉ email hợp lệ.', 10)
                 ->assertSee('Email phải là một địa chỉ email hợp lệ.');
         });
     }
@@ -108,14 +112,14 @@ class Register_Test extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/register')
                 ->type('#name', 'Nguyen Thi Hong')
-                ->type('#email', '1234@gmail.com')
+                ->type('#email','newuser'.rand(1,9999).'@gmail.com')
                 ->type('#password', '123sd')
                 ->type('#so_dien_thoai', '0901234567')
                 ->type('#dia_chi', 'Hà Nội')
                 ->script("document.querySelector('form').setAttribute('novalidate', 'novalidate');");
 
             $browser->press('button[type=submit]')
-                ->pause(1000)
+                ->waitForText('Mật khẩu phải có ít nhất 8 ký tự.', 10)
                 ->assertSee('Mật khẩu phải có ít nhất 8 ký tự.');
         });
     }
@@ -126,14 +130,13 @@ class Register_Test extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/register')
                 ->type('#name', 'Nguyen Thi Hong')
-                ->type('#email', '1234@gmail.com')
+                ->type('#email','newuser'.rand(1,9999).'@gmail.com')
                 ->type('#password', '')
                 ->type('#so_dien_thoai', '0901234567')
                 ->type('#dia_chi', 'Hà Nội')
                 ->script("document.querySelector('form').setAttribute('novalidate', 'novalidate');");
-
             $browser->press('button[type=submit]')
-                ->pause(1000)
+                ->waitForText('Mật khẩu không được để trống.', 10)
                 ->assertSee('Mật khẩu không được để trống.');
         });
     }
@@ -144,13 +147,13 @@ class Register_Test extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/register')
                 ->type('#name', 'Nguyen Van A')
-                ->type('#email', '1234@gmail.com')
+                ->type('#email','newuser'.rand(1,9999).'@gmail.com')
                 ->type('#password', '123123123')
                 ->type('#password_confirmation', '123123123')
                 ->type('#so_dien_thoai', '9012345672')
                 ->type('#dia_chi', 'Hà Nội')
                 ->press('button[type=submit]')
-                ->pause(1000)
+                ->waitForText('Số điện thoại phải bắt đầu bằng số 0.', 10)
                 ->assertSee('Số điện thoại phải bắt đầu bằng số 0.');
         });
     }
@@ -161,13 +164,13 @@ class Register_Test extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/register')
                 ->type('#name', 'Nguyen Thi Hong')
-                ->type('#email', '1234@gmail.com')
+                ->type('#email','newuser'.rand(1,9999).'@gmail.com')
                 ->type('#password', '123123123')
                 ->type('#password_confirmation', '123123123')
                 ->type('#so_dien_thoai', '090123456')
                 ->type('#dia_chi', 'Hà Nội')
                 ->press('button[type=submit]')
-                ->pause(1000)
+                ->waitForText('Số điện thoại phải đủ 10 chữ số.', 10)
                 ->assertSee('Số điện thoại phải đủ 10 chữ số.');
         });
     }
@@ -178,13 +181,13 @@ class Register_Test extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/register')
                 ->type('#name', 'Nguyen Thi Hong')
-                ->type('#email', '1234@gmail.com')
+                ->type('#email','newuser'.rand(1,9999).'@gmail.com')
                 ->type('#password', '123123123')
                 ->type('#password_confirmation', '123456123')
                 ->type('#so_dien_thoai', '0956123456')
                 ->type('#dia_chi', 'Hà Nội')
                 ->press('button[type=submit]')
-                ->pause(1000)
+                ->waitForText('Mật khẩu xác nhận không khớp.', 10)
                 ->assertSee('Mật khẩu xác nhận không khớp.');
         });
     }
@@ -195,15 +198,14 @@ class Register_Test extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/register')
                 ->type('#name', '')
-                ->type('#email', '1234@gmail.com')
+                ->type('#email','newuser'.rand(1,9999).'@gmail.com')
                 ->type('#password', '123123123')
                 ->type('#password_confirmation', '123123123')
                 ->type('#so_dien_thoai', '0901234567')
                 ->type('#dia_chi', 'Hà Nội')
                 ->script("document.querySelector('form').setAttribute('novalidate', 'novalidate');");
-
             $browser->press('button[type=submit]')
-                ->pause(1000)
+                ->waitForText('Họ tên không được để trống.', 10)
                 ->assertSee('Họ tên không được để trống.');
         });
     }
@@ -213,14 +215,14 @@ class Register_Test extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/register')
-                ->type('#name', 'Nguyễn Thị & An')
-                ->type('#email', '1234@gmail.com')
+                ->type('#name', 'Nguyễn Thị & An 123')
+                ->type('#email','newuser'.rand(1,9999).'@gmail.com')
                 ->type('#password', '123123123')
                 ->type('#password_confirmation', '123123123')
                 ->type('#so_dien_thoai', '0901234567')
                 ->type('#dia_chi', 'Hà Nội')
                 ->press('button[type=submit]')
-                ->pause(1000)
+                ->waitForText('Họ tên không được chứa ký tự đặc biệt hoặc số.', 10)
                 ->assertSee('Họ tên không được chứa ký tự đặc biệt hoặc số.');
         });
     }
@@ -231,15 +233,14 @@ class Register_Test extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/register')
                 ->type('#name', 'Nguyễn Thị An')
-                ->type('#email', '1234@gmail.com')
+                ->type('#email','newuser'.rand(1,9999).'@gmail.com')
                 ->type('#password', '123123123')
                 ->type('#password_confirmation', '123123123')
                 ->type('#so_dien_thoai', '0901234568')
                 ->type('#dia_chi', '')
                 ->script("document.querySelector('form').setAttribute('novalidate', 'novalidate');");
-
             $browser->press('button[type=submit]')
-                ->pause(1000)
+                ->waitForText('Địa chỉ không được để trống.', 10)
                 ->assertSee('Địa chỉ không được để trống.');
         });
     }

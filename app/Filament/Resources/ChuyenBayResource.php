@@ -36,6 +36,7 @@ class ChuyenBayResource extends Resource
                                     ->label('Mã chuyến bay')
                                     ->required()
                                     ->unique(ignoreRecord: true)
+                                    ->rules(['regex:/^[A-Z0-9]+$/'])
                                     ->maxLength(50),
 
                                 Forms\Components\Select::make('id_may_bay')
@@ -62,6 +63,7 @@ class ChuyenBayResource extends Resource
                                     ->label('Giá vé (VND)')
                                     ->required()
                                     ->numeric()
+                                    ->rules(['min:1'])
                                     ->default(0.00),
                             ]),
                     ])->columnSpan(['lg' => 2]),
@@ -81,18 +83,24 @@ class ChuyenBayResource extends Resource
                                     ->label('Sân bay đến')
                                     ->relationship('sanBayDen', 'ten_san_bay')
                                     ->searchable()
-                                    ->required(),
+                                    ->required()
+                                    ->different('id_san_bay_di')
+                                    ->validationAttribute('sân bay đến'),
                             ]),
 
                         Forms\Components\Section::make('Thời gian')
                             ->schema([
                                 Forms\Components\DateTimePicker::make('thoi_gian_di')
                                     ->label('Thời gian đi')
-                                    ->required(),
+                                    ->required()
+                                    ->rules(['after_or_equal:now'])
+                                    ->validationAttribute('thời gian đi'),
 
                                 Forms\Components\DateTimePicker::make('thoi_gian_den')
                                     ->label('Thời gian đến')
-                                    ->required(),
+                                    ->required()
+                                    ->after('thoi_gian_di')
+                                    ->validationAttribute('thời gian đến'),
                             ]),
                     ])->columnSpan(['lg' => 1]),
             ])

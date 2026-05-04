@@ -157,7 +157,7 @@ class Login_Test extends DuskTestCase
 
 //T1: .\vendor\laravel\dusk\bin\chromedriver-win32\chromedriver.exe --port=9515
 
-//T2: chạy file test:  php artisan dusk tests/Browser/TC_DN_Test.php
+//T2: chạy file test:  php artisan dusk tests/Browser/Login_Test.php
 
 
 //lẹnh chạy: php artisan dusk --filter=Login_Test
