@@ -17,7 +17,7 @@ class Register_Test extends DuskTestCase
                 ->waitFor('#name',10)
                 ->type('#name','Nguyen Thi Hong')
                 //->type('#email','newuser'.rand(1,9999).'@gmail.com')
-                ->type('#email', 'newuser12@example.com')
+                ->type('#email', 'newuser123@example.com')
                 ->type('#password','Abc@1234')
                 ->type('#password_confirmation','Abc@1234')
                 ->type('#so_dien_thoai','0901234567')

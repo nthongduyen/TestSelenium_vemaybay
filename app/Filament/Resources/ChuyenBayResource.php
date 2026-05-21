@@ -57,16 +57,34 @@ class ChuyenBayResource extends Resource
                                     ->required(),
                             ]),
 
-                        Forms\Components\Section::make('Thông tin giá')
+                        /*Forms\Components\Section::make('Thông tin giá')
                             ->schema([
                                 Forms\Components\TextInput::make('gia_ve')
                                     ->label('Giá vé (VND)')
                                     ->required()
                                     ->numeric()
                                     ->rules(['min:1'])
-                                    ->default(0.00),
+                                    ->default(0.00)
+                                    // THÊM DÒNG NÀY: Tắt bong bóng thông báo của trình duyệt
+                                    ->extraInputAttributes(['novalidate' => true]),
                             ]),
-                    ])->columnSpan(['lg' => 2]),
+                    ])->columnSpan(['lg' => 2]),*/
+                        Forms\Components\Section::make('Thông tin giá')
+                                ->schema([
+                                    Forms\Components\TextInput::make('gia_ve')
+                                        ->label('Giá vé (VND)')
+                                        ->required()
+                                        // Sửa: Dùng rules để bắt lỗi numeric từ Server thay vì type="number" của trình duyệt
+                                        ->rules(['numeric', 'min:1'])
+                                        ->default(0.00)
+                                        ->extraInputAttributes([
+                                            'type' => 'text', // Ép kiểu text để Dusk nhập được chữ 'adffggg' (TC_TCB_15)
+                                            'novalidate' => true, // Tắt validate mặc định của HTML5
+                                        ])
+                                        ->validationAttribute('giá vé'),
+                                ]),
+                        ])
+                        ->columnSpan(['lg' => 2]),
 
                 // Cột phải
                 Forms\Components\Group::make()
@@ -148,6 +166,7 @@ class ChuyenBayResource extends Resource
             ->filters([
                 //
             ])
+
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
@@ -155,6 +174,15 @@ class ChuyenBayResource extends Resource
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
+    }
+
+    // Thêm hàm này vào để Filament v2 nhận diện tùy chọn hiển thị ==== 19/5/2026
+    // Đảm bảo hàm này nằm độc lập cuối file ChuyenBayResource.php (bên trên hàm getRelations)
+    protected static function getRecordsPerPageSelectOptions(): array
+    {
+        // Số 5 đứng đầu đồng nghĩa với việc mặc định khi vào trang hệ thống sẽ chỉ hiện 5 bản ghi
+        // Giá trị -1 đại diện cho option "Tất cả" mà bạn mong muốn
+        return [5, 10, 25, 50, -1];
     }
 
     public static function getRelations(): array
