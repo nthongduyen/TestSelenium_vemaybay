@@ -53,7 +53,7 @@ class UpdateFlight_Test extends DuskTestCase
             $this->setUpAdmin($browser);
             $this->navigateToEditPage($browser, $maChuyenBay);
             $this->selectFilamentChoice($browser, 'data.id_san_bay_den', 'Ta', 'Tân Sơn Nhất');
-            $browser->pause(500);
+            $browser->pause(700);
             $this->setFilamentDateTime($browser, 'data.thoi_gian_di', '2026-12-10 11:00:00');
             $this->setFilamentDateTime($browser, 'data.thoi_gian_den', '2026-12-10 12:00:00');
             $browser->click('[dusk="filament.admin.action.save"]')

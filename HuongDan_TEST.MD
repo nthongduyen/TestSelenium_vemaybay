@@ -30,7 +30,7 @@
     Terminal 1. npm run dev
     Terminal 2. php artisan serve
 
-=== chạy bài test: mở 2 terminal
+=== chạy bài test: mở 2 terminal "=== chrome==
     T1: .\vendor\laravel\dusk\bin\chromedriver-win32\chromedriver.exe --port=9515
         ( .\vendor\laravel\dusk\bin\chromedriver-win32\chromedriver.exe --port=9515 )
 
@@ -38,6 +38,44 @@
         // lệnh chạy từng test 1: php artisan dusk --filter=tên_hàm => VD: php artisan dusk --filter=testLoginSuccess_TC_DN_01
 
 ===================
+
+==================
+
+/// cài Edge
+b1: vào edge link : "Microsoft Edge Driver" tải phiên bản cùng vs edge là 149. x64
+b2: cài xong , giải lén, tim file =="msedgedriver" copy vào =="E:\Xampp\htdocs\vemaybay-main\vendor\laravel\dusk\bin\" cùng hàng vs file chrome
+b3: vào file .en thêm dòng "DUSK_BROWSER=edge" vào cuối cùng file ( nếu muốn chạy chrome thì xóa edge thành "DUSK_BROWSER=chrome")
+b4: sửa code file =="DuskTestCase.php" có lưu trên driver
+=================
+ cách chạy trên ========edge========
+t1:  .\vendor\laravel\dusk\bin\msedgedriver.exe --port=9515
+t2:   file test
+
+==== ĐỂ CHẠY TRÊN chrome hay edge cần làm như sau===
+vào file  .env ở cuối file có Dòng " DUSK_BROWSER=edge " đây là chạy trên Edge
+vào file  .env ở cuối file có Dòng " DUSK_BROWSER=chrome " đây là chạy trên chrome
+-- Sau mỗi lần đổi trình duyệt cần crtl + c để cập nhật phiên bản cho mỗi trình duyệt (tức là teminal chạy  // cùng với lệnh chạy test case)
+
+
+=== tk đăng nhập ===
+Admin:
+    Mk: lsdz11021
+T   TK: an2392k4@gmail.com
+
+    MK:duyen@gmail.com
+    MK: 123123123
+User
+    TK: 123@gmail.com
+    MK: 123123123
+
+
+
+
+
+
+
+
+
 
 ====================== dưới cũ =====================
     === Quá trình đặt vé máy bay: test/Brower/FightBookingTest
